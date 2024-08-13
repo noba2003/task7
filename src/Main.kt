@@ -93,7 +93,7 @@ fun main() {
       //  val duplicated: MutableList<Int> = mutableListOf()
 
         // Original list of integers
-        val listOfInteger: List<Int> = listOf(1, 2, 3, 2, 4, 5, 3, 6, 1,55,65,55,4,4,7,7)
+        val listOfInteger: List<Int> = listOf(1, 2, 3, 2, 4, 5, 3, 6, 1,55,65,4,4,7,7)
         val sorted = listOfInteger.sorted()
 
 
@@ -102,10 +102,12 @@ fun main() {
         val duplicated:MutableSet<Int> = mutableSetOf()
         for(i in listOfInteger){
                 for(v in  listOfInteger.indices){
-                        if (v<listOfInteger.size){}
-                        if(i==listOfInteger[v]){
-                                duplicated.add(i)
+                        if (v!=listOfInteger.size-1){
+                                if(i==listOfInteger[v+1]){
+                                        duplicated.add(i)
+                                }
                         }
+
                 }
         }
 
