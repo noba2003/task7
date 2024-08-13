@@ -88,11 +88,37 @@ fun main() {
 //4. Removing Duplications Using Set
 //1. Handling Duplications:
 //1.1. Declare a List of integers with the values [1, 2, 3, 2, 4, 5, 3, 6, 1].
-        val listOfInteger:List<Int> = listOf(1, 2, 3, 2, 4, 5, 3, 6, 1)
+     //   val listOfInteger:List<Int> = listOf(1, 2, 3, 2, 4, 5, 3, 6, 1)
 //1.2. Create a MutableList to store duplicated elements.
-        val duplicated =listOfInteger.forEach(){
-                listOfInteger.contains(it)
+      //  val duplicated: MutableList<Int> = mutableListOf()
+
+        // Original list of integers
+        val listOfInteger: List<Int> = listOf(1, 2, 3, 2, 4, 5, 3, 6, 1,55)
+
+// Create a MutableList to store duplicated elements
+        val duplicated:MutableSet<Int> = mutableSetOf()
+
+// Iterate through the list using index
+        for (i in listOfInteger.indices) {
+                // Check if the current element is equal to the next element
+                if (i < listOfInteger.size - 1 ) {
+                        // Add to duplicated list if not already added
+                      for (j in listOfInteger.indices){
+                              if (j<listOfInteger.size-1){
+                                      if (listOfInteger[i] == listOfInteger[j+ 1]) {
+                                              duplicated.add(listOfInteger[i])
+                                      }
+                              }
+
+                      }
+                }
         }
+
+// Print results
+        println("******")
+        println(duplicated.size) // Print the number of unique duplicated elements
+        println(duplicated)      // Print the list of duplicated elements
+
 //1.3. Use a loop to iterate through the list and add any element that
 //appears more than once to the MutableList of duplicates.
 //1.4. Print the MutableList of duplicated elements.
